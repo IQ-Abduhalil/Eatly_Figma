@@ -8,10 +8,10 @@ export type TodoContextType = {
 const CartContext = createContext<TodoContextType | null>(null);
 
 function CartProvider({ children }: any) {
-  const cartLocal: any = localStorage.getItem("mycart");
+  const cartLocal: any = sessionStorage.getItem("mycart");
 
   const [cart, setCart] = useState<any>(JSON.parse(cartLocal));
-  localStorage.setItem("mycart", JSON.stringify(cart));
+  sessionStorage.setItem("mycart", JSON.stringify(cart));
 
   let values: any = {
     cart,

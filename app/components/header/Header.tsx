@@ -9,7 +9,7 @@ import Link from "@/node_modules/next/link";
 import { usePathname } from "next/navigation";
 
 function Header() {
-  const authToken = localStorage.getItem("authToken");
+  const authToken = sessionStorage.getItem("authToken");
   const pathname = usePathname();
 
   const [token, setToken] = useState(true);

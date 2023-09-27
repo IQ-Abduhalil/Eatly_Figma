@@ -43,7 +43,7 @@ const Login = () => {
           values
         );
         console.log(res);
-        localStorage.setItem("authToken", res?.data?.data);
+        sessionStorage.setItem("authToken", res?.data?.data);
         console.log(values);
         if (res?.data?.status === 200) {
           router.push("/home");
