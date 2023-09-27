@@ -98,7 +98,7 @@ const Login = () => {
               </label>
             </div>
             {formik.touched.password && formik.errors.password ? (
-              <span className="text-red-600">{formik.errors.password}</span>
+              <span className="text-red-600">error</span>
             ) : null}
 
             <div className="relative mb-6">
@@ -115,7 +115,7 @@ const Login = () => {
                 placeholder="Enter email"
               />
               {formik.touched.email && formik.errors.email ? (
-                <span className="text-red-600">{formik.errors.email}</span>
+                <span className="text-red-600">error</span>
               ) : null}
               <label
                 htmlFor="label"
