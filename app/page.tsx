@@ -48,7 +48,7 @@ const Register = () => {
           values
         );
         console.log(res);
-        sessionStorage.setItem("authToken", res?.data?.data);
+        localStorage.setItem("authToken", res?.data?.data);
         console.log(values);
         if (res?.data?.status === 201) {
           router.push("/home");
