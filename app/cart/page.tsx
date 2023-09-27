@@ -7,7 +7,7 @@ import Header from "../components/header/Header";
 import { CartContext } from "../context/CartContext";
 
 function Cart() {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart } = useContext<any>(CartContext);
 
   // useEffect(() => {
   //   setCart(cart);
