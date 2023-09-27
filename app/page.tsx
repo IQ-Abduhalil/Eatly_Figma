@@ -98,7 +98,7 @@ const Register = () => {
                 placeholder="Enter Full Name"
               />
               {formik.touched.name && formik.errors.name ? (
-                <span className="text-red-600">{formik.errors.name}</span>
+                <span className="text-red-600">error</span>
               ) : null}
               <label
                 htmlFor="label"
@@ -129,7 +129,7 @@ const Register = () => {
               </label>
             </div>
             {formik.touched.password && formik.errors.password ? (
-              <span className="text-red-600">{formik.errors.password}</span>
+              <span className="text-red-600">error</span>
             ) : null}
 
             <div className="relative mb-6">
