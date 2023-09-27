@@ -8,10 +8,15 @@ export type TodoContextType = {
 const CartContext = createContext<TodoContextType | null>(null);
 
 function CartProvider({ children }: any) {
-  const cartLocal: any = localStorage.getItem("mycart");
+  // if (typeof localStorage !== "undefined") {
+  //   // Access and use localStorage here
+  //   const cartLocal: any = localStorage.getItem("mycart");
+  //   localStorage.setItem("mycart", JSON.stringify(cart));
+  // } else {
+  //   console.log("localStorage is not available.");
+  // }
 
-  const [cart, setCart] = useState<any>(JSON.parse(cartLocal));
-  sessionStorage.setItem("mycart", JSON.stringify(cart));
+  const [cart, setCart] = useState<any>([]);
 
   let values: any = {
     cart,

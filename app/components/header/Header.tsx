@@ -9,14 +9,21 @@ import Link from "@/node_modules/next/link";
 import { usePathname } from "next/navigation";
 
 function Header() {
-  const authToken = localStorage.getItem("authToken");
   const pathname = usePathname();
 
   const [token, setToken] = useState(true);
+
+  if (typeof localStorage !== "undefined") {
+    // Access and use localStorage here
+  } else {
+    console.log("localStorage is not available.");
+  }
+
   function handleremoveItem() {
     localStorage.removeItem("authToken");
     setToken(!token);
   }
+
   return (
     <header>
       <div className="container flex items-center justify-between pt-10 pb-8">
@@ -115,4 +122,4 @@ function Header() {
   );
 }
 
-export default memo(Header);
+export default Header;
