@@ -56,10 +56,8 @@ const Register = () => {
         } else {
           router.push("/");
         }
-      } catch (err) {
-        alert(
-          "Bu foyalanuvchi oldin ro'yxatdan o'tgan! Iltimos login qismiga o'ting!"
-        );
+      } catch (err: any) {
+        alert(err.message);
       }
     },
     validate,

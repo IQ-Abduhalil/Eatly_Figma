@@ -51,7 +51,7 @@ const Login = () => {
           router.push("/login");
         }
       } catch (err: any) {
-        alert("Bu foydalanuvchi royxatdan otmagan!!!");
+        alert(err.message);
       } finally {
       }
     },
