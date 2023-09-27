@@ -4,17 +4,15 @@ import { AllpropsType } from "../types";
 
 export interface ITodo {
   id: number;
-  title: string;
-  description: string;
-  status: boolean;
+  price: string;
+  name: string;
 }
 export type TodoContextType = {
   todos: ITodo[];
   saveTodo: (todo: ITodo) => void;
   updateTodo: (id: number) => void;
 };
-null;
-const CartContext = createContext<TodoContextType>(null);
+const CartContext = createContext<TodoContextType>();
 
 function CartProvider({ children }: any) {
   const cartLocal = window.localStorage.getItem("mycart");

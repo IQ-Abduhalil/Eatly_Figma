@@ -6,14 +6,15 @@ import Sign_In_Image from "../../public/assets/images/hero-bg-sm.png";
 import Logo_Sign_Up from "../../public/assets/icons/Logo.svg";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useFormik } from "formik";
 
-const initialValues = {
+const initialValues: any = {
   email: "",
   password: "",
 };
 
-const validate = (values) => {
-  const errors = {};
+const validate = (values: any) => {
+  const errors: any = {};
   if (!values.email) {
     errors.email = "To'ldirishing Shart";
   } else if (
@@ -34,7 +35,7 @@ const Login = () => {
 
   const formik = useFormik({
     initialValues,
-    onSubmit: async (values) => {
+    onSubmit: async (values: any) => {
       console.log(values);
       try {
         const res = await axios.post(

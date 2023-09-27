@@ -1,6 +1,5 @@
 "use client";
 import "./cart.scss";
-import Image from "@/node_modules/next/image";
 import React, { useContext, useEffect } from "react";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
@@ -27,8 +26,8 @@ function Cart() {
                 >
                   <div className="cart__inner flex p-3 justify-between">
                     <div className="">
-                      <p className="cart__name">{item[0].name}</p>
-                      <p className="cart__price">{item[0].price}</p>
+                      <p className="cart__name">{item.name}</p>
+                      <p className="cart__price">{item.price}</p>
                     </div>
                     <div className="flex gap-2 items-center">
                       <button

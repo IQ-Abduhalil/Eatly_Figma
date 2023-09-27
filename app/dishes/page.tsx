@@ -52,8 +52,6 @@ function Dishes() {
     fetchDishes();
   }, []);
   const ApiUrl = "http://207.154.221.44:4002";
-
-  console.log(cart);
   return (
     <>
       <Header />

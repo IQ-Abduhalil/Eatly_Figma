@@ -8,14 +8,14 @@ import { useFormik } from "@/node_modules/formik/dist/index";
 import Link from "@/node_modules/next/link";
 import { useRouter } from "@/node_modules/next/navigation";
 
-const initialValues = {
+const initialValues: any = {
   name: "",
   email: "",
   password: "",
 };
 
 const validate = (values: any) => {
-  const errors = {};
+  const errors: any = {};
   if (!values.name) {
     errors.name = "To'ldirishing Shart";
   }

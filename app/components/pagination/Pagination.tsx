@@ -8,7 +8,6 @@ import Heart from "../../../public/assets/icons/Heart.svg";
 import View from "../../../public/assets/icons/View-all.svg";
 import { useDishesStore } from "@/app/store/getDishes";
 import Loading from "../loading/Loading";
-import { Dish } from "@/app/types";
 
 function Pagination() {
   const dishes = useDishesStore((state: any) => state.dishes);

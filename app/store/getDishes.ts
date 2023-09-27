@@ -1,7 +1,7 @@
 import axios from "axios";
 import { create } from "zustand";
 
-export const useDishesStore = create((set) => ({
+export const useDishesStore = create((set: any) => ({
   dishes: [],
   loading: false,
   error: "",
