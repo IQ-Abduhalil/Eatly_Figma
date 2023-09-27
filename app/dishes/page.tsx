@@ -2,9 +2,7 @@
 import "./dishes.scss";
 import { memo, useContext, useEffect, useState } from "react";
 import Loading from "../components/loading/Loading";
-import { useCartStore } from "../store/cartDishes";
 import { useDishesStore } from "../store/getDishes";
-import { Dish } from "../types";
 import Star from "../../public/assets/icons/Star.svg";
 import Addbtn from "../../public/assets/icons/Add.svg";
 import Image from "next/image";
