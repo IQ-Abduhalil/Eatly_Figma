@@ -14,7 +14,7 @@ export type TodoContextType = {
   updateTodo: (id: number) => void;
 };
 null;
-const CartContext = createContext();
+const CartContext = createContext<TodoContextType>();
 
 function CartProvider({ children }: any) {
   const cartLocal = window.localStorage.getItem("mycart");
