@@ -4,6 +4,7 @@ import React, { useContext, useEffect } from "react";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import { CartContext } from "../context/CartContext";
+import Subscribe from "../components/homesections/Subscribe/Subscribe";
 
 function Cart() {
   const { cart } = useContext<any>(CartContext);
@@ -51,6 +52,7 @@ function Cart() {
               <h4>Hali sizga yoqgan mahsulot yo'q!!!</h4>
             )}
           </div>
+          <Subscribe />
         </div>
       </main>
       <Footer />
