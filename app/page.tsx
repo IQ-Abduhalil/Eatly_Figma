@@ -146,7 +146,7 @@ const Register = () => {
                 placeholder="Enter email"
               />
               {formik.touched.email && formik.errors.email ? (
-                <span className="text-red-600">{formik.errors.email}</span>
+                <span className="text-red-600">error</span>
               ) : null}
               <label
                 htmlFor="label"
