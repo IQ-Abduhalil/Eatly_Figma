@@ -13,7 +13,7 @@ export type TodoContextType = {
   updateTodo: (id: number) => void;
 };
 
-const SearchContext = createContext<TodoContextType>(null);
+const SearchContext = createContext<TodoContextType | null>(null);
 
 function SearchProvider({ children }: any) {
   const [search, setSearch] = useState("");

@@ -1,21 +1,14 @@
 "use client";
-import { createContext, useEffect, useState } from "react";
-import { AllpropsType } from "../types";
+import { createContext, useState } from "react";
 
-export interface ITodo {
-  id: number;
-  price: string;
-  name: string;
-}
 export type TodoContextType = {
-  todos: ITodo[];
-  saveTodo: (todo: ITodo) => void;
+  saveTodo: () => void;
   updateTodo: (id: number) => void;
 };
-const CartContext = createContext<TodoContextType>();
+const CartContext = createContext<TodoContextType | null>(null);
 
 function CartProvider({ children }: any) {
-  const cartLocal = window.localStorage.getItem("mycart");
+  const cartLocal: any = window.localStorage.getItem("mycart");
 
   const [cart, setCart] = useState<any>(JSON.parse(cartLocal));
   window.localStorage.setItem("mycart", JSON.stringify(cart));
