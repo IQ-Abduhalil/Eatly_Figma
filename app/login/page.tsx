@@ -6,7 +6,6 @@ import Sign_In_Image from "../../public/assets/images/hero-bg-sm.png";
 import Logo_Sign_Up from "../../public/assets/icons/Logo.svg";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useFormik } from "Formik";
 
 const initialValues = {
   email: "",
