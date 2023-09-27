@@ -1,25 +1,20 @@
 "use client";
 import { memo } from "react";
 import Image from "next/image";
-import Sign_In_Image from "../public/assets/images/hero-bg-sm.png";
-import Logo_Sign_Up from "../public/assets/icons/Logo.svg";
+import Link from "next/link";
+import Sign_In_Image from "../../public/assets/images/hero-bg-sm.png";
+import Logo_Sign_Up from "../../public/assets/icons/Logo.svg";
 import axios from "axios";
-import { useFormik } from "@/node_modules/formik/dist/index";
-import Link from "@/node_modules/next/link";
-import { useRouter } from "@/node_modules/next/navigation";
+import { useRouter } from "next/navigation";
+import { useFormik } from "Formik";
 
 const initialValues = {
-  name: "",
   email: "",
   password: "",
 };
 
-const validate = (values: any) => {
+const validate = (values) => {
   const errors = {};
-  if (!values.name) {
-    errors.name = "To'ldirishing Shart";
-  }
-
   if (!values.email) {
     errors.email = "To'ldirishing Shart";
   } else if (
@@ -35,7 +30,7 @@ const validate = (values: any) => {
   return errors;
 };
 
-const Register = () => {
+const Login = () => {
   const router = useRouter();
 
   const formik = useFormik({
@@ -44,21 +39,20 @@ const Register = () => {
       console.log(values);
       try {
         const res = await axios.post(
-          "http://207.154.221.44:4002/api/register",
+          "http://207.154.221.44:4002/api/login",
           values
         );
         console.log(res);
         localStorage.setItem("authToken", res?.data?.data);
         console.log(values);
-        if (res?.data?.status === 201) {
+        if (res?.data?.status === 200) {
           router.push("/home");
         } else {
-          router.push("/");
+          router.push("/login");
         }
-      } catch (err) {
-        alert(
-          "Bu foyalanuvchi oldin ro'yxatdan o'tgan! Iltimos login qismiga o'ting!"
-        );
+      } catch (err: any) {
+        alert("Bu foydalanuvchi royxatdan otmagan!!!", err);
+      } finally {
       }
     },
     validate,
@@ -76,38 +70,13 @@ const Register = () => {
         </div>
         <div className="rounded-lg flex flex-col items-center justify-center">
           <form
-            onSubmit={formik.handleSubmit}
             action=""
             className="w-[23.938rem]"
+            onSubmit={formik.handleSubmit}
           >
             <h2 className="text-center text-[#323142] text-[2.203rem] font-semibold leading-[2.754rem] tracking-tighter-[1.41pxrem] pb-[1.875rem]">
-              Sign Up To eatly
+              Sign In To eatly
             </h2>
-
-            <div className="relative mb-6">
-              <input
-                required
-                autoComplete="name"
-                id="name"
-                name="name"
-                defaultValue={formik.values.name}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                type="text"
-                className="bg-[#F5F5F5] py-[1.5rem] rounded-[0.892rem] peer block min-h-[auto] w-full border-0 bg-transparent px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                placeholder="Enter Full Name"
-              />
-              {formik.touched.name && formik.errors.name ? (
-                <span className="text-red-600">{formik.errors.name}</span>
-              ) : null}
-              <label
-                htmlFor="label"
-                className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-              >
-                Full Name
-              </label>
-            </div>
-
             <div className="relative mb-6 bg-[#F5F5F5] p-[1.5rem] rounded-[0.892rem]">
               <input
                 required
@@ -142,7 +111,7 @@ const Register = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 type="email"
-                className="bg-[#F5F5F5] py-[1.5rem] rounded-[0.892rem] peer block min-h-[auto] w-full border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                className="bg-[#F5F5F5] py-[1.5rem] rounded-[0.892rem] peer block min-h-[auto] w-full border-0 bg-transparent px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                 placeholder="Enter email"
               />
               {formik.touched.email && formik.errors.email ? (
@@ -155,7 +124,6 @@ const Register = () => {
                 Email address
               </label>
             </div>
-
             <div className="mb-6 flex items-center justify-between">
               <div className="block min-h-[1.5rem] pl-[1.5rem]"></div>
               <a
@@ -168,18 +136,20 @@ const Register = () => {
             <button
               type="submit"
               className="bg-[#6C5FBC] rounded-[0.973rem] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]] inline-block w-full bg-primary px-6 py-[1.5rem] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+              data-te-ripple-init
+              data-te-ripple-color="light"
             >
               <span className="text-[1.112rem] font-semibold tracking-tighter-[0.033rem]">
-                SIGN UP
+                Sign in
               </span>
             </button>
             <p className="mt-6 text-center text-neutral-800 dark:text-neutral-200">
-              Already Have An Account?
+              Create A New Account?
               <Link
-                href="/login"
+                href="/"
                 className="pl-[0.3rem] text-primary text-[1.181rem] font-semibold tracking-tighter-[0.012rem] text-[#6C5FBC] transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
               >
-                Log In
+                Sign Up
               </Link>
             </p>
           </form>
@@ -214,4 +184,4 @@ const Register = () => {
   );
 };
 
-export default memo(Register);
+export default memo(Login);

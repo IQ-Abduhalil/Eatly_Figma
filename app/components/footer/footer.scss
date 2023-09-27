@@ -1,0 +1,21 @@
+.footer {
+  background-color: #eaeaea;
+
+  &__top {
+    border-bottom: 1px solid #818181;
+  }
+
+  &__text {
+    color: #999;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px;
+  }
+
+  &__bottom {
+    @media screen and (max-width: 425px) {
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.cart {
+  display: flex;
+  justify-content: center;
+  &__card {
+    border-radius: 11.965px;
+    background-color: #fff;
+    max-width: 680px;
+  }
+
+  &__btn-minus {
+    padding: 10px;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+  }
+}

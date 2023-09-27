@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  padding-right: 95px;
+  padding-left: 95px;
+  margin-right: auto;
+  margin-left: auto;
+  @media only screen and (max-width: 1124px) {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  @media screen and (max-width: 768px) {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+  @media screen and (max-width: 575px) {
+    padding-right: 21px;
+    padding-left: 21px;
+  }
+}

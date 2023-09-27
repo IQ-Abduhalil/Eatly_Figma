@@ -1,0 +1,121 @@
+.dishes {
+  margin-top: 30px;
+  margin-bottom: 60px;
+
+  &__cards {
+    @media screen and (max-width: 1024px) {
+      display: grid;
+      grid-template-columns: auto auto;
+    }
+    @media screen and (max-width: 577px) {
+      display: grid;
+      grid-template-columns: auto;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    color: #323142;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 25.558px;
+    margin-bottom: 70px;
+  }
+
+  &__title--two {
+    color: #6c5fbc;
+  }
+
+  &__card {
+    position: relative;
+    display: inline-block;
+    max-width: 255px;
+    max-height: 391px;
+    padding: 30px 16px;
+    margin-bottom: 60px;
+    border-radius: 34.665px;
+    border: 1.444px solid #f4f4f6;
+    background: #fff;
+    box-shadow: 6.8649px 82.37885px 41.18943px 0px rgba(229, 229, 229, 0.7);
+  }
+
+  &__card-img {
+    max-width: 185px;
+    max-height: 185px;
+  }
+
+  &__card-heart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  &__card-type {
+    display: inline-block;
+    padding: 3px 7px;
+    border-radius: 4.839px;
+    background-color: #f7c5ba;
+    color: #309d5b;
+    font-size: 11.45px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  &__card-name {
+    color: #323142;
+    font-size: 23.11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 37.553px;
+  }
+
+  &__card-time {
+    color: #8e97a6;
+    font-size: 17.332px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23.11px;
+  }
+
+  &__card-price {
+    color: #323142;
+    font-size: 25.998px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40.442px;
+  }
+
+  &__card-page {
+    color: #acadb9;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 45.184px; /* 225.921% */
+    letter-spacing: -0.1px;
+  }
+
+  &__right-form {
+    margin-bottom: 30px;
+    padding: 12px 20px;
+    text-align: center;
+    display: flex;
+    gap: 12px;
+    border-radius: 8px;
+    background: #f6f6f6;
+
+    @media screen and (max-width: 1024px) {
+      gap: 6px;
+      padding: 8px 12px;
+    }
+
+    @media screen and (max-width: 768px) {
+      gap: 5px;
+      padding: 8px 10px;
+    }
+    @media screen and (max-width: 630px) {
+      display: none;
+    }
+  }
+}
