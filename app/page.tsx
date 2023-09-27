@@ -49,12 +49,7 @@ const Register = () => {
         );
         console.log(res);
 
-        if (typeof localStorage !== "undefined") {
-          // Access and use localStorage here
-          localStorage.setItem("authToken", res?.data?.data);
-        } else {
-          console.log("localStorage is not available.");
-        }
+        localStorage.setItem("authToken", res?.data?.data);
         console.log(values);
         if (res?.data?.status === 201) {
           router.push("/home");

@@ -13,12 +13,6 @@ function Header() {
 
   const [token, setToken] = useState(true);
 
-  if (typeof localStorage !== "undefined") {
-    // Access and use localStorage here
-  } else {
-    console.log("localStorage is not available.");
-  }
-
   function handleremoveItem() {
     localStorage.removeItem("authToken");
     setToken(!token);
